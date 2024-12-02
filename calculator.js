@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send(
+    "<h1>Calulator</h1> <p>Calculations for <b>/mean</b>, <b>/median</b>, and <b>/mode</b> are ready in the url.</p> <h2>Example</h2> <p>/mean?nums=1,3,5,7</p> <h2>Result</h2> <p>value: 4</p>"
+  );
+});
+
 app.get("/:operation(mean|median|mode)", (req, res) => {
   const operation = req.params.operation;
   const nums = req.query.nums;
